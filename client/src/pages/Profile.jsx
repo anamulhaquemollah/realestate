@@ -1,1 +1,9 @@
-Ohh, I'd like to follow up for Stanford on IS4158 with and DSI.
+import React from 'react'
+
+const Profile = () => {
+  return (
+    <div>Profile</div>
+  )
+}
+
+export default Profile
