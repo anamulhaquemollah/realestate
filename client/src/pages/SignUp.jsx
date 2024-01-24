@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const SignUp = () => {
 
   const [formData, setFormData] = useState({}); 
+  const [loading, setLoading] = useState(false);
   const changeHandler = (e)=>{
     setFormData({
       ...formData, 
@@ -13,7 +14,7 @@ const SignUp = () => {
 
   const submitHandler =  async (e)=>{
     e.preventDefault(); 
-
+    setLoading(true); 
     const res = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
@@ -23,9 +24,8 @@ const SignUp = () => {
     });
     console.log(res);
     const data = await res.json(); 
-    console.log(data);
-  }
-console.log(formData); 
+    console.log(data.success);
+  } 
   return (
     <div className='max-w-xl p-10 mx-auto'>
       <h1 className='text-3xl text-center font-bold'>Sign Up</h1>
